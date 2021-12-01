@@ -1,0 +1,1183 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MESA DE PARTES VIRTUAL</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.7 -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/Ionicons/css/ionicons.min.css">
+	<!-- Select2 -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/select2/dist/css/select2.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/dist/css/AdminLTE.min.css">
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
+	folder instead of downloading all of them to reduce the load. -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/dist/css/skins/_all-skins.min.css">
+	<!-- Morris chart -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/morris.js/morris.css">
+	<!-- jvectormap -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jvectormap/jquery-jvectormap.css">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+	<!-- iCheck for checkboxes and radio inputs -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/iCheck/all.css">
+	<!-- Daterange picker -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+	<!-- bootstrap wysihtml5 - text editor -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/js/html5shiv.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Google Font -->
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/css/googlefont.css">
+
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/plugin/pnotify/pnotify.custom.min.css">
+
+	<link rel="stylesheet" href="https://dretumbes.edu.pe/mesadepartes/public/css/cssStep.css">
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="stylesheet" href="css/whats2.css">
+
+    <link rel="stylesheet" href="css/whats.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<style>
+		h3
+		{
+			margin-bottom: 4px;
+			margin-top: 4px;
+		}
+
+		h4
+		{
+			margin-bottom: 4px;
+			margin-top: 4px;
+		}
+
+		hr
+		{
+			margin-bottom: 7px;
+			margin-top: 7px;
+		}
+
+		textarea
+		{
+			resize: vertical;
+		}
+
+		.cursorPointer{ cursor: pointer; }
+
+		.modal { overflow: auto !important; }
+
+		.table > tbody > tr > td, .table > thead > tr > th
+		{
+			vertical-align: middle;
+		}
+	</style>
+
+	<!-- jQuery 3 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/pnotify/pnotify.custom.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/sweetalert/sweetalert.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/js/jsAjax.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/js/jsBuscar.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/js/jsStep.js"></script>
+</head>
+<div class="nav-bottom">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+     <div class="popup-whatsapp fadeIn">
+         <div class="content-whatsapp -top"><button type="button" class="closePopup">
+               <i class="material-icons icon-font-color">close</i>
+             </button> 
+            <p>  <img src="img/secretary.png" width="50">  Hola, ¿en que podemos ayudarle? </p>  
+         </div>
+         <div class="content-whatsapp -bottom">
+           <input class="whats-input" id="whats-in" type="text" Placeholder="Enviar mensaje..." />
+             <button class="send-msPopup" id="send-btn" type="button">
+                 <i class="material-icons icon-font-color--black">send</i>
+             </button>
+         </div>
+     </div>
+     <button type="button" id="whats-openPopup" class="whatsapp-button">
+         <div class="float" >
+         <i class="fa fa-whatsapp my-float"></i></div>
+     </button>
+     <div class="circle-anime"></div>
+ </div>
+<script  src="js/script2.js"></script>
+</div>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<!-- Logo -->
+			<a href="#" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>D</b>TR</span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg">MESA DE PARTES VIRTUAL</span>
+			</a>
+			<!-- Header Navbar: style can be found in header.less -->
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</a>
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!--include('template/parcial/parcialnotificacion')-->
+						<!-- User Account: style can be found in dropdown.less -->
+<li class="dropdown user user-menu">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<img src="https://dretumbes.edu.pe/mesadepartes/public/img/logo/logoSistema.png?x=2021-02-22_00-00-00" class="user-image" alt="User Image" style="background-color: #ffffff;">
+		<span class="hidden-xs">Usuario Externo</span>
+	</a>
+	<ul class="dropdown-menu">
+		<!-- User image -->
+		<li class="user-header">
+			<img src="https://dretumbes.edu.pe/mesadepartes/public/img/logo/logoSistema.png?x=2021-02-22_00-00-00" class="img-circle" alt="User Image" style="background-color: #ffffff;">
+			<p>
+				Usuario Externo
+				<small>Acceso público</small>
+			</p>
+		</li>
+		<!-- Menu Body -->
+		<li class="user-body">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<a href="#">Mesa de partes Virtual</a>
+				</div>
+			</div>
+			<!-- /.row -->
+		</li>
+		<!-- Menu Footer-->
+		<li class="user-footer">
+						<div class="pull-right">
+				<a href="#" class="btn btn-default btn-flat">Salir</a>
+			</div>
+		</li>
+	</ul>
+</li>						<!-- Control Sidebar Toggle Button -->
+						<li>
+							<!--<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>-->
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<!-- Sidebar user panel -->
+				<div class="user-panel">
+					<div class="pull-left image">
+						<img src="https://dretumbes.edu.pe/mesadepartes/public/img/logo/logoSistema.png?x=2021-02-22_00-00-00" class="img-circle" alt="User Image" style="background-color: #ffffff;">
+					</div>
+					<div class="pull-left info">
+						<p>Usuario Externo</p>
+						<small></small>
+					</div>
+				</div>
+				<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu" data-widget="tree">
+	<li class="header">MENÚ DE NAVEGACIÓN</li>
+					<li>
+			<a href="#">
+			<span>Regresar al inicio</span>
+			</a>
+		</li>
+	</ul>
+<script>
+	
+	</script>			</section>
+			<!-- /.sidebar -->
+		</aside>
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Ingreso externo de documento					<small>Insertar</small>
+				</h1>
+			</section>
+			<!-- Main content -->
+			<section class="content">
+								<div class="modal" id="modalLoading" data-backdrop="static" data-keyboard="false" style="z-index: 50000;">
+		            <div class="modal-dialog">
+		                <div class="modal-content">
+		                    <div class="modal-header">
+		                        <h4 class="modal-title">Cargando datos...</h4>
+		                    </div>
+		                    <div class="modal-body">
+								<div class="progress progress-striped active">
+									<div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+								</div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+				<div id="dialogoGeneral"></div>
+				<div class="row">
+	<div class="col-md-12">
+		<div class="nav-tabs-custom">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab_1-1">Ingreso de documento</a></li>
+			</ul>
+			<div class="tab-content">
+				<form id="frmInsertarDocumento" action="https://dretumbes.edu.pe/mesadepartes/public/otdevtasignacion/insertarexterno" method="post" enctype="multipart/form-data">
+					<div class="tab-pane active" id="tab_1-1">
+						<ul class="ulStep" style="grid-template-columns: 33.5% 33% 33.5%;">
+							<li class="divStep01 ulStepActive">Paso 1: Dependencia</li>
+							<li class="divStep02">Paso 2: Datos del solicitante</li>
+							<li class="divStep03">Paso 3: Datos del documento</li>
+						</ul>
+						<div class="divStep divStep01 divStepActive">
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="selectCodigoOficina">Oficina que recepciona</label>
+									<select id="selectCodigoOficina" name="selectCodigoOficina" class="selectStatic" disabled style="width: 100%;">
+																					<option value="5a77e6b97955a" >Mesa de partes</option>
+																			</select>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="button" class="btn btn-info pull-right ulStepBtn" value="Siguiente" onclick="nextStepOne();">
+								</div>
+							</div>
+						</div>
+						<div class="divStep divStep02">
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="txtNombrePersonaPresenta">Nombres</label>
+									<input type="text" id="txtNombrePersonaPresenta" name="txtNombrePersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="txtApellidoPaternoPersonaPresenta">Apellido paterno</label>
+									<input type="text" id="txtApellidoPaternoPersonaPresenta" name="txtApellidoPaternoPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="txtApellidoMaternoPersonaPresenta">Apellido materno</label>
+									<input type="text" id="txtApellidoMaternoPersonaPresenta" name="txtApellidoMaternoPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="txtDniPersonaPresenta">DNI</label>
+									<input type="text" id="txtDniPersonaPresenta" name="txtDniPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+								<div class="form-group col-md-4">
+									<label>Sexo</label>
+									<div class="form-control">
+										<label class="cursorPointer">
+											<input type="radio" id="radioSexoM" name="radioSexo" value="1" checked>
+											<span>Masculino</span>
+										</label>
+										&nbsp;&nbsp;
+										<label class="cursorPointer">
+											<input type="radio" id="radioSexoF" name="radioSexo" value="0">
+											<span>Femenino</span>
+										</label>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="txtCelularPersonaPresenta">Celular</label>
+									<input type="text" id="txtCelularPersonaPresenta" name="txtCelularPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="txtCorreoElectronicoPersonaPresenta">Correo electrónico</label>
+									<input type="text" id="txtCorreoElectronicoPersonaPresenta" name="txtCorreoElectronicoPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+								<div class="form-group col-md-8">
+									<label for="txtDireccionPersonaPresenta">Dirección actual</label>
+									<input type="text" id="txtDireccionPersonaPresenta" name="txtDireccionPersonaPresenta" class="form-control" placeholder="Obligatorio">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="selectCodigoDepartamento">Departamento</label>
+									<select id="selectCodigoDepartamento" name="selectCodigoDepartamento" style="width: 100%;" onchange="onChangeSelectCodigoDepartamento();">
+																					<option value="kacwggma7ijce">Amazonas</option>
+																					<option value="kacwggmas6bhm">Áncash</option>
+																					<option value="kacwggmapu7qs">Apurímac</option>
+																					<option value="kacwggmay4yei">Arequipa</option>
+																					<option value="kacwggmaj6ah6">Ayacucho</option>
+																					<option value="kacwggmaskqua">Cajamarca</option>
+																					<option value="kacwggmafj0rd">Callao</option>
+																					<option value="kacwggma4hwae">Cusco</option>
+																					<option value="kacwggmaja15h">Huancavelica</option>
+																					<option value="kacwggmarxwc7">Huánuco</option>
+																					<option value="kacwggmabwtc8">Ica</option>
+																					<option value="kacwggmavdb87">Junín</option>
+																					<option value="kacwggma49uyf">La Libertad</option>
+																					<option value="kacwggmamskyq">Lambayeque</option>
+																					<option value="kacwggma29c9f">Lima</option>
+																					<option value="kacwggmaz01bh">Loreto</option>
+																					<option value="kacwggmatuejj">Madre de Dios</option>
+																					<option value="kacwggmayp7hr">Moquegua</option>
+																					<option value="kacwggmazoeo1">Pasco</option>
+																					<option value="kacwggmapu748">Piura</option>
+																					<option value="kacwggmawr6zd">Puno</option>
+																					<option value="kacwggmajms5w">San Martín</option>
+																					<option value="kacwggmap67ms">Tacna</option>
+																					<option value="kacwggmav5137">Tumbes</option>
+																					<option value="kacwggmanaf4p">Ucayali</option>
+																			</select>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="selectCodigoProvincia">Provincia</label>
+									<select id="selectCodigoProvincia" name="selectCodigoProvincia" style="width: 100%;" onchange="onChangeSelectCodigoProvincia();">
+																					<option value="kacwggma3ngun">Bagua</option>
+																					<option value="kacwggmbcrfav">Bongará</option>
+																					<option value="kacwggmau7cvy">Chachapoyas</option>
+																					<option value="kacwggmb7l6fe">Condorcanqui</option>
+																					<option value="kacwggmblwdzl">Luya</option>
+																					<option value="kacwggmbun2b9">Rodríguez de Mendoza</option>
+																					<option value="kacwggmc5cp25">Utcubamba</option>
+																			</select>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="selectCodigoDistrito">Distrito</label>
+									<select id="selectCodigoDistrito" name="selectCodigoDistrito" style="width: 100%;">
+																					<option value="kacwggmvlpbpw">Aramango</option>
+																					<option value="kacwggmv36jey">Bagua</option>
+																					<option value="kacwggmvedef2">Copallin</option>
+																					<option value="kacwggmv8a78n">El Parco</option>
+																					<option value="kacwggmvy0144">Imaza</option>
+																					<option value="kacwggmvn84q2">La Peca</option>
+																			</select>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="button" class="btn btn-default pull-left ulStepBtn" value="Atrás" onclick="goToNextPreviousStep(false);">
+									<input type="button" class="btn btn-info pull-right ulStepBtn" value="Siguiente" onclick="nextStepTwo();">
+								</div>
+							</div>
+						</div>
+						<div class="divStep divStep03">
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="txtNombre">Asunto</label>
+									<input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Obligatorio">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="txtDescripcion">Descripción</label>
+									<textarea id="txtDescripcion" name="txtDescripcion" rows="4" class="form-control" placeholder="Obligatorio"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="txtFolio">Folio</label>
+									<input type="text" id="txtFolio" name="txtFolio" class="form-control" placeholder="Obligatorio">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="selectTipo">Tipo</label>
+									<select id="selectTipo" name="selectTipo" class="form-control">
+																					<option value="5efb704ea3b20">Informes</option>
+																					<option value="5ec8f5c762026">Memorando</option>
+																					<option value="5ec99a5a4f578">Nota de cordinacion</option>
+																					<option value="5ec8f5b68cad9">Oficio</option>
+																					<option value="5edfb70b145ac">Oficio Múltiple</option>
+																					<option value="5efb706e919af">Planes</option>
+																					<option value="5ec8f5e498f03">Resolución</option>
+																					<option value="5ebddc6d57e5c">Solicitud</option>
+																			</select>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="fileArchivo">Archivo</label>
+									<input type="file" id="fileArchivo" name="fileArchivo" class="form-control" style="border: none;">
+								</div>
+							</div>
+							
+							<hr>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="hidden" name="_token" value="0AOSSinaYsl8LQTutKwuehzhIGmhCKxq2cptarhp">
+									<input type="button" class="btn btn-default pull-left ulStepBtn" value="Atrás" onclick="goToNextPreviousStep(false);">
+									<input type="button" class="btn btn-primary pull-right ulStepBtn" value="Registrar datos" onclick="enviarFrmInsertarDocumento();">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<section>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <h1 style="text-align: center; color: dodgerblue;">¿No Sabe Cómo hacer este Procedimiento?</h1>
+    <p style="text-align: center; font-size: 25px">Aquí en le enseñamos cómo</p>
+    <p style="text-align: center; font-size: 25px; color: green;">(O puede Escribirnos tu Duda al Whatsapp dando click a la busbuja flotante con el logo de Whatsapp)</p>
+    <h2 style="margin-top: 10%; margin-left: 42%;">Video Tutorial</h2>
+    <iframe class="video" width="100%" height="500" src="https://www.youtube.com/embed/MdANxe1SD0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+    <h1 class="sub">O Envíanos un Correo</h1>
+    <form method="POST" action="" class="formulario"  id="frmlogueo" onsubmit="cargar(this)">
+        <div class="logo">
+          <img src="../img/logoecoamigos.png" alt="">
+          <h1>Envianos un Correo</h1>
+        </div>
+        <div class="formulario__grupo" id="grupo__usuario">
+          <label for="usuario" class="formulario__label">Nombre y Apellido Completos</label>
+          <div class="formulario__grupo-input">
+            <input type="text" class="formulario__input" name="txtusuario" id="usuario" placeholder="Escriba su nombre y apellido">
+          </div>
+        <div class="formulario__grupo" id="grupo__password">
+          <label for="text" class="formulario__label">Mensaje o Solicitud</label>
+          <div class="formulario__grupo-input">
+            <input type="text" class="formulario__inputmensaje" name="txtclave" id="mansaje" placeholder="Ingrese Mensaje">
+          </div>
+        </div>
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+          <button type="submit"  class="formulario__btn">Enviar Mensaje</button>
+        </div>
+      </form>
+</section>
+<script>
+	$(function()
+	{
+		$('#frmInsertarDocumento').formValidation(
+		{
+			framework : 'bootstrap',
+			excluded : [':disabled', ':hidden', ':not(:visible)', '[class*="notValidate"]'],
+			live : 'enabled',
+			message : '<b style="color: #9d9d9d;">Asegúrese que realmente no necesita este valor.</b>',
+			trigger : null,
+			fields :
+			{
+				selectCodigoOficina :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtNombrePersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtApellidoPaternoPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtApellidoMaternoPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtDniPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						},
+						regexp :
+						{
+							message : '<b style="color: red;">Formato incorrecto. [Ejemplo: 77777777].</b>',
+							regexp : /^[0-9]{8}$/
+						}
+					}
+				},
+				txtCelularPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtCorreoElectronicoPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						},
+						regexp:
+						{
+							message: '<b style="color: red;">Formato incorrecto. [Ejemplo: any@gmail.com].</b>',
+							regexp: /^[a-zA-Z0-9\.\-_]+\@[a-zA-Z0-9\-_]+\.[a-zA-Z]+(\.[a-zA-Z]+)?$/
+						}
+					}
+				},
+				txtDireccionPersonaPresenta :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				selectCodigoDistrito :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtNombre :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						},
+						regexp :
+						{
+							message : '<b style="color: red;">Sólo se permite texto y números.</b>',
+							regexp : /^[a-zA-Z0-9ñÑàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚ]+[a-zA-Z0-9ñÑàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚ\s@\.\-_]*$/
+						}
+					}
+				},
+				txtDescripcion :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				txtFolio :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						},
+						regexp :
+						{
+							message : '<b style="color: red;">Formato incorrecto. [Ejemplo: 1, 2, 3, ...].</b>',
+							regexp : /^[0-9]+$/
+						}
+					}
+				},
+				selectTipo :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				},
+				fileArchivo :
+				{
+					validators : 
+					{
+						notEmpty :
+						{
+							message : '<b style="color: red;">Este campo es requerido.</b>'
+						}
+					}
+				}
+			}
+		});
+
+		$('#selectCodigoDepartamento').select2(
+		{
+			language :
+			{
+				noResults : function()
+				{
+					return "No se encontraron resultados.";        
+				},
+				searching : function()
+				{
+					return "Buscando...";
+				},
+				inputTooShort : function()
+				{ 
+					return 'Por favor ingrese 3 o más caracteres';
+				}
+			},
+			placeholder : 'Buscar...'
+		});
+
+		$('#selectCodigoProvincia').select2(
+		{
+			language :
+			{
+				noResults : function()
+				{
+					return "No se encontraron resultados.";        
+				},
+				searching : function()
+				{
+					return "Buscando...";
+				},
+				inputTooShort : function()
+				{ 
+					return 'Por favor ingrese 3 o más caracteres';
+				}
+			},
+			placeholder : 'Buscar...'
+		});
+
+		$('#selectCodigoDistrito').select2(
+		{
+			language :
+			{
+				noResults : function()
+				{
+					return "No se encontraron resultados.";        
+				},
+				searching : function()
+				{
+					return "Buscando...";
+				},
+				inputTooShort : function()
+				{ 
+					return 'Por favor ingrese 3 o más caracteres';
+				}
+			},
+			placeholder : 'Buscar...'
+		});
+	});
+
+	function onChangeSelectCodigoDepartamento()
+	{
+		paginaAjaxJSON({ _token: '0AOSSinaYsl8LQTutKwuehzhIGmhCKxq2cptarhp', codigoDepartamento: $('#selectCodigoDepartamento').val() }, 'https://dretumbes.edu.pe/mesadepartes/public/provincia/jsonporcodigodepartamento', 'POST', null, function(objectJson)
+		{
+			if(!objectJson.correcto)
+			{
+				new PNotify(
+				{
+					title : 'No se pudo proceder',
+					text : objectJson.mensajeGlobal,
+					type : 'error'
+				});
+
+				return;
+			}
+
+			$('#selectCodigoProvincia').html(null);
+
+			objectJson.listaTProvincia.forEach(function(element)
+			{
+				$('#selectCodigoProvincia').append(new Option(element.nombre, element.codigoProvincia, false, false));
+			});
+
+			$('#selectCodigoProvincia').trigger('change');
+		}, false, true);
+	}
+
+	function onChangeSelectCodigoProvincia()
+	{
+		paginaAjaxJSON({ _token: '0AOSSinaYsl8LQTutKwuehzhIGmhCKxq2cptarhp', codigoProvincia: $('#selectCodigoProvincia').val() }, 'https://dretumbes.edu.pe/mesadepartes/public/distrito/jsonporcodigoprovincia', 'POST', null, function(objectJson)
+		{
+			if(!objectJson.correcto)
+			{
+				new PNotify(
+				{
+					title : 'No se pudo proceder',
+					text : objectJson.mensajeGlobal,
+					type : 'error'
+				});
+
+				return;
+			}
+
+			$('#selectCodigoDistrito').html(null).trigger('change');
+
+			objectJson.listaTDistrito.forEach(function(element)
+			{
+				$('#selectCodigoDistrito').append(new Option(element.nombre, element.codigoDistrito, false, false));
+			});
+
+			$('#selectCodigoDistrito').trigger('change');
+		}, false, true);
+	}
+
+	function onChangeSelectedFile()
+	{
+		window.setTimeout(function()
+		{
+			$('#frmInsertarDocumento').data('formValidation').resetForm();
+
+			$('#frmInsertarDocumento').data('formValidation').validateField('selectCodigoOficina');
+			$('#frmInsertarDocumento').data('formValidation').validateField('txtNombrePersonaPresenta');
+			$('#frmInsertarDocumento').data('formValidation').validateField('txtDniPersonaPresenta');
+			$('#frmInsertarDocumento').data('formValidation').validateField('txtNombre');
+			$('#frmInsertarDocumento').data('formValidation').validateField('txtFolio');
+			$('#frmInsertarDocumento').data('formValidation').validateField('fileArchivo');
+
+			$('#divContenedorAdjuntos > div').each(function(index1, element1)
+			{
+				if(($($(element1).find('input[id^=txtNombre]')[0]).val()!=null && $($(element1).find('input[id^=txtNombre]')[0]).val().trim()!='') || $($(element1).find('input[id^=fileArchivo]')[0]).val()!='')
+				{
+					agregarValidacion(element1);
+
+					$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=txtNombre]')[0]));
+					$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=txtFolio]')[0]));
+					$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=fileArchivo]')[0]));
+				}
+			});
+		}, 250);
+	}
+
+	function agregarQuitarAdjunto(direct, element)
+	{
+		if(direct || ($(element).val()!=null && $(element).val().trim()!=''))
+		{
+			var existeFormularioLibre=false;
+
+			$('#divContenedorAdjuntos > div').each(function(index1, element1)
+			{
+				if($($(element1).find('input[id^=txtNombre]')[0]).val()!=null && $($(element1).find('input[id^=txtNombre]')[0]).val().trim()=='')
+				{
+					existeFormularioLibre=true;
+
+					return false;
+				}
+			});
+
+			if(!existeFormularioLibre)
+			{
+				var htmlTemp='<div class="row">'
+					+'<div class="form-group col-md-4">'
+						+'<label for="txtNombreX" style="color: orange;">Nombre del documento</label>'
+						+'<input type="text" id="txtNombreX" name="txtNombreAdjunto[]" class="form-control" onkeyup="agregarQuitarAdjunto(false, this);">'
+					+'</div>'
+					+'<div class="form-group col-md-2">'
+						+'<label for="txtFolioX" style="color: orange;">Folio</label>'
+						+'<input type="text" id="txtFolioX" name="txtFolioAdjunto[]" class="form-control">'
+					+'</div>'
+					+'<div class="form-group col-md-3">'
+						+'<label for="selectTipoX" style="color: orange;">Tipo</label>'
+						+'<select id="selectTipoX" name="selectTipoAdjunto[]" class="form-control">';
+
+															htmlTemp+='<option value="5efb704ea3b20">Informes</option>';
+															htmlTemp+='<option value="5ec8f5c762026">Memorando</option>';
+															htmlTemp+='<option value="5ec99a5a4f578">Nota de cordinacion</option>';
+															htmlTemp+='<option value="5ec8f5b68cad9">Oficio</option>';
+															htmlTemp+='<option value="5edfb70b145ac">Oficio Múltiple</option>';
+															htmlTemp+='<option value="5efb706e919af">Planes</option>';
+															htmlTemp+='<option value="5ec8f5e498f03">Resolución</option>';
+															htmlTemp+='<option value="5ebddc6d57e5c">Solicitud</option>';
+							
+						htmlTemp+='</select>'
+					+'</div>'
+					+'<div class="form-group col-md-3">'
+						+'<label for="fileArchivoX" style="color: orange;">Archivo</label>'
+						+'<input type="file" id="fileArchivoX" name="fileArchivoAdjunto[]" class="form-control" onchange="onChangeSelectedFile();" style="border: none;">'
+					+'</div>'
+				'</div>';
+
+				$('#divContenedorAdjuntos').append(htmlTemp);
+			}
+		}
+		else
+		{
+			$('#divContenedorAdjuntos > div').each(function(index1, element1)
+			{
+				if(($($(element1).find('input[id^=txtNombre]')[0]).val()!=null && $($(element1).find('input[id^=txtNombre]')[0]).val().trim()=='') && !($($(element1).find('input[id^=txtNombre]')[0]).is(':focus')))
+				{
+					$(element1).remove();
+				}
+			});
+		}
+
+		enumerarComponentes();
+
+		$('#frmInsertarDocumento').data('formValidation').resetForm();
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtNombre');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDescripcion');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtFolio');
+		$('#frmInsertarDocumento').data('formValidation').validateField('fileArchivo');
+
+		$('#divContenedorAdjuntos > div').each(function(index1, element1)
+		{
+			if(($($(element1).find('input[id^=txtNombre]')[0]).val()!=null && $($(element1).find('input[id^=txtNombre]')[0]).val().trim()!='') || $($(element1).find('input[id^=fileArchivo]')[0]).val()!='')
+			{
+				agregarValidacion(element1);
+
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=txtNombre]')[0]));
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=txtFolio]')[0]));
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element1).attr('id')+' input[id^=fileArchivo]')[0]));
+			}
+		});
+	}
+
+	function enumerarComponentes()
+	{
+		$('#divContenedorAdjuntos > div').each(function(index, element)
+		{
+			var posicionActual=index+1;
+
+			$(element).attr('id', 'divAdjunto'+posicionActual);
+
+			$($('#'+$(element).attr('id')+' label[for^=txtNombre]')[0]).attr('for', 'txtNombre'+posicionActual);
+			$($('#'+$(element).attr('id')+' input[id^=txtNombre]')[0]).attr('id', 'txtNombre'+posicionActual);
+
+			$($('#'+$(element).attr('id')+' label[for^=txtFolio]')[0]).attr('for', 'txtFolio'+posicionActual);
+			$($('#'+$(element).attr('id')+' input[id^=txtFolio]')[0]).attr('id', 'txtFolio'+posicionActual);
+
+			$($('#'+$(element).attr('id')+' label[for^=selectTipo]')[0]).attr('for', 'selectTipo'+posicionActual);
+			$($('#'+$(element).attr('id')+' input[id^=selectTipo]')[0]).attr('id', 'selectTipo'+posicionActual);
+
+			$($('#'+$(element).attr('id')+' label[for^=fileArchivo]')[0]).attr('for', 'fileArchivo'+posicionActual);
+			$($('#'+$(element).attr('id')+' input[id^=fileArchivo]')[0]).attr('id', 'fileArchivo'+posicionActual);
+		});
+	}
+
+	function agregarValidacion(element)
+	{
+		$('#frmInsertarDocumento').formValidation('addField', $($('#'+$(element).attr('id')+' input[id^=txtNombre]')[0]),
+		{
+			validators :
+			{
+				notEmpty :
+				{
+					message : '<b style="color: red;">Este campo es requerido.</b>'
+				},
+				regexp :
+				{
+					message : '<b style="color: red;">Sólo se permite texto y números.</b>',
+					regexp : /^[a-zA-Z0-9ñÑàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚ]+[a-zA-Z0-9ñÑàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚ\s@\.\-_]*$/
+				}
+			}
+		});
+
+		$('#frmInsertarDocumento').formValidation('addField', $($('#'+$(element).attr('id')+' input[id^=txtFolio]')[0]),
+		{
+			validators :
+			{
+				notEmpty :
+				{
+					message : '<b style="color: red;">Este campo es requerido.</b>'
+				},
+				regexp :
+				{
+					message : '<b style="color: red;">Formato incorrecto. [Ejemplo: 1, 2, 3, ...].</b>',
+					regexp : /^[0-9]+$/
+				}
+			}
+		});
+
+		$('#frmInsertarDocumento').formValidation('addField', $($('#'+$(element).attr('id')+' input[id^=fileArchivo]')[0]),
+		{
+			validators :
+			{
+				notEmpty :
+				{
+					message : '<b style="color: red;">Este campo es requerido.</b>'
+				}
+			}
+		});
+	}
+
+	function nextStepOne()
+	{
+		var isValid=null;
+
+		$('#frmInsertarDocumento').data('formValidation').resetField('selectCodigoOficina');
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('selectCodigoOficina');
+
+		isValid=$('#frmInsertarDocumento').data('formValidation').isValidField('selectCodigoOficina');
+
+		if(!isValid)
+		{
+			new PNotify(
+			{
+				title : 'No se pudo proceder',
+				text : 'Por favor complete y corrija toda la información necesaria antes de continuar.',
+				type : 'error'
+			});
+
+			return;
+		}
+
+		goToNextPreviousStep(true);
+	}
+
+	function nextStepTwo()
+	{
+		var isValid=null;
+
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtNombrePersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtApellidoPaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtApellidoMaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtDniPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtCelularPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtCorreoElectronicoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('txtDireccionPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').resetField('selectCodigoDistrito');
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtNombrePersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtApellidoPaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtApellidoMaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDniPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtCelularPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtCorreoElectronicoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDireccionPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('selectCodigoDistrito');
+
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtNombrePersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtNombrePersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtApellidoPaternoPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtApellidoPaternoPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtApellidoMaternoPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtApellidoMaternoPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtDniPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtDniPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtCelularPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtCelularPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtCorreoElectronicoPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtCorreoElectronicoPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('txtDireccionPersonaPresenta') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('txtDireccionPersonaPresenta'));
+		isValid=isValid==null ? $('#frmInsertarDocumento').data('formValidation').isValidField('selectCodigoDistrito') : (!isValid ? false : $('#frmInsertarDocumento').data('formValidation').isValidField('selectCodigoDistrito'));
+
+		if(!isValid)
+		{
+			new PNotify(
+			{
+				title : 'No se pudo proceder',
+				text : 'Por favor complete y corrija toda la información necesaria antes de continuar.',
+				type : 'error'
+			});
+
+			return;
+		}
+
+		goToNextPreviousStep(true);
+	}
+
+	function enviarFrmInsertarDocumento()
+	{
+		var isValid=null;
+
+		$('#frmInsertarDocumento').data('formValidation').resetForm();
+
+		$('#divContenedorAdjuntos > div').each(function(index, element)
+		{
+			if(($($('#'+$(element).attr('id')+' input[id^=txtNombre]')[0]).val()!=null && $($('#'+$(element).attr('id')+' input[id^=txtNombre]')[0]).val().trim()!='') || $($('#'+$(element).attr('id')+' input[id^=fileArchivo]')[0]).val()!='')
+			{
+				agregarValidacion(element);
+
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element).attr('id')+' input[id^=txtNombre]')[0]));
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element).attr('id')+' input[id^=txtFolio]')[0]));
+				$('#frmInsertarDocumento').data('formValidation').validateField($($('#'+$(element).attr('id')+' input[id^=fileArchivo]')[0]));
+			}
+			else
+			{
+				$(element).remove();
+			}
+		});
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('selectCodigoOficina');
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtNombrePersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtApellidoPaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtApellidoMaternoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDniPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtCelularPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtCorreoElectronicoPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDireccionPersonaPresenta');
+		$('#frmInsertarDocumento').data('formValidation').validateField('selectCodigoDistrito');
+
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtNombre');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtDescripcion');
+		$('#frmInsertarDocumento').data('formValidation').validateField('txtFolio');
+		$('#frmInsertarDocumento').data('formValidation').validateField('selectTipo');
+		$('#frmInsertarDocumento').data('formValidation').validateField('fileArchivo');
+
+		isValid=$('#frmInsertarDocumento').data('formValidation').isValid();
+
+		if(!isValid)
+		{
+			agregarQuitarAdjunto(true, null);
+
+			new PNotify(
+			{
+				title : 'No se pudo proceder',
+				text : 'Por favor complete y corrija toda la información necesaria antes de continuar.',
+				type : 'error'
+			});
+
+			return;
+		}
+
+		swal(
+		{
+			title : 'Confirmar operación',
+			text : '¿Realmente desea continuar con la acción?',
+			icon : 'warning',
+			buttons : ['No, cancelar.', 'Si, proceder.']
+		})
+		.then((proceed) =>
+		{
+			if(proceed)
+			{
+				$('#modalLoading').modal('show');
+				
+				$('#frmInsertarDocumento')[0].submit();	
+			}
+			else
+			{
+				agregarQuitarAdjunto(true, null);
+			}
+		});
+	}
+</script>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Versión</b> 1.0
+			</div>
+			<strong>Copyright &copy; 2019-2021 <a href="https://dretumbes.edu.pe" target="_blank">www.dretumbes.edu.pe</a>.</strong> Todo los derechos reservados.
+		</footer>
+		<!--include('template/parcial/parcialsidebar')-->
+	</div>
+	<!-- ./wrapper -->
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+	$.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<!-- Bootstrap 3.3.7 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Select2 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
+	<!-- Morris.js charts -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/raphael/raphael.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/morris.js/morris.min.js"></script>
+	<!-- Sparkline -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+	<!-- jvectormap -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/moment/min/moment.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<!-- datepicker -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<!-- iCheck 1.0.1 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/iCheck/icheck.min.js"></script>
+	<!-- Bootstrap WYSIHTML5 -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+	<!-- Slimscroll -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- FastClick -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+	<!-- AdminLTE App -->
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/adminlte/dist/js/adminlte.min.js"></script>
+
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/formvalidation/formValidation.min.js"></script>
+	<script src="https://dretumbes.edu.pe/mesadepartes/public/plugin/formvalidation/bootstrap.validation.min.js"></script>
+
+	<script>
+		$(function()
+		{
+			$('body').keypress(function(event)
+			{
+				if(event.keyCode===10 || event.keyCode===13)
+				{
+					event.preventDefault();
+				}
+			});
+
+			$('[data-toggle="tooltip"]').tooltip();
+
+			$('.select').select2(
+			{
+				language :
+				{
+					noResults : function()
+					{
+						return "No se encontraron resultados.";        
+					},
+					searching : function()
+					{
+						return "Buscando...";
+					},
+					inputTooShort : function()
+					{ 
+						return 'Por favor ingrese 3 o más caracteres';
+					}
+				},
+				placeholder : 'Buscar...',
+				minimumInputLength: 3
+			});
+
+			$('.selectStatic').select2(
+			{
+				language :
+				{
+					noResults : function()
+					{
+						return "No se encontraron resultados.";        
+					},
+					searching : function()
+					{
+						return "Buscando...";
+					},
+					inputTooShort : function()
+					{ 
+						return 'Por favor ingrese 3 o más caracteres';
+					}
+				},
+				placeholder : 'Buscar...'
+			});
+		});
+	</script>
+</body>
+</html>
